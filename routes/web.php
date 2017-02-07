@@ -12,17 +12,18 @@
 */
 
 Route::get('/', 'HomeController@home');
-Route::get('/', 'HomeController@dashboard')->middleware('auth');
+Route::get('home', 'HomeController@dashboard')->middleware('auth');
 
 Auth::routes();
 
 Route::get('new_ticket', 'TicketsController@create');
 Route::post('new_ticket', 'TicketsController@store');
-Route::get('tickets', 'TicketsController@userTickets');
+Route::get('tickets', 'TicketsController@userTickets')->middleware('notadmin');
 Route::get('tickets/{ticket_id}', 'TicketsController@show');
 Route::post('comment', 'CommentsController@postComment');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
-    Route::get('tickets', 'TicketsController@index');
-    Route::post('close_ticket/{ticket_id}', 'TicketsController@close');
+    Route::get('/', 'TicketsController@home');
+    Route::get('tickets', 'TicketsController@tickets');
+    Route::post('change_status/{ticket_id}', 'TicketsController@changeStatus');
 });
