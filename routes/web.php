@@ -22,7 +22,7 @@ Route::get('tickets', 'TicketsController@userTickets')->middleware('notadmin');
 Route::get('tickets/{ticket_id}', 'TicketsController@show');
 Route::post('comment', 'CommentsController@postComment');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'TicketsController@home');
     Route::get('tickets', 'TicketsController@tickets');
     Route::get('categories', 'CategoryController@show');

@@ -10,9 +10,8 @@ class Category extends Model
 
     public $timestamps = false;
 
-
     public function tickets()
     {
-      return $this->hasMany('App\Ticket');
+        return $this->hasMany('App\Ticket');
     }
 }

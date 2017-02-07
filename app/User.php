@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -29,11 +29,11 @@ class User extends Authenticatable
 
     public function comments()
     {
-    return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment');
     }
 
     public function tickets()
     {
-    return $this->hasMany('App\Ticket');
-  }
+        return $this->hasMany('App\Ticket');
+    }
 }
