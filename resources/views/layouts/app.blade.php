@@ -14,6 +14,8 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
+    <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
