@@ -14,8 +14,8 @@
                     @include('includes.flash')
 
                     <div class="ticket-info">
-                        <p>{{ $ticket->message }}</p>
-                        <p>Categry: {{ $category->name }}</p>
+                        <p>{!! $ticket->message !!}</p>
+                        <p>Category: {{ $category->name }}</p>
                         <p>
                         @if ($ticket->status === 'Open')
                             Status: <span class="label label-success">{{ $ticket->status }}</span>
@@ -37,12 +37,12 @@
                                 </div>
 
                                 <div class="panel panel-body">
-                                    {{ $comment->comment }}
+                                    {!! $comment->comment !!}
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                    
+
                     <div class="comment-form">
                         <form action="{{ url('comment') }}" method="POST" class="form">
                             {!! csrf_field() !!}

@@ -14,7 +14,7 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=eknk3qyfwf84ocbpuc5d5cl54h8vyvdgn75de0ht7ljkt67h"></script>
     <script>tinymce.init({ selector:'textarea' });</script>
     <script>
         window.Laravel = {!! json_encode([
