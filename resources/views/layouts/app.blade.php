@@ -4,15 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', '') | Support Center</title>
+    <title>@yield('title'.' | ', '')Support Center</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    @yield('css')
     <!-- Scripts -->
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=eknk3qyfwf84ocbpuc5d5cl54h8vyvdgn75de0ht7ljkt67h"></script>
     <script>tinymce.init({ selector:'textarea' });</script>
@@ -82,8 +80,7 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    @yield('footer')
+    <script src="{{ url('js/app.js') }}"></script>
 </body>
 </html>
