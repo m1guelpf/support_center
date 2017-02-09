@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Ticket;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,12 @@ class CategoryController extends Controller
 
     public function delete($category_id)
     {
-        Category::destroy($category_id);
+        $category = Category::findOrFail($category_id);
+        foreach ($category->tickets as $ticket)
+        {
+          $ticket->delete();
+        }
+        $category->delete();
 
         return redirect()->back();
     }
