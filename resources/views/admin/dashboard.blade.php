@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col-md-12">
                 {{--<h4><i class="glyphicon glyphicon-info-sign"></i> Tickets Activities</h4>--}}
                 {{--<hr />--}}
                 <ul class="nav nav-tabs nav-justified">
