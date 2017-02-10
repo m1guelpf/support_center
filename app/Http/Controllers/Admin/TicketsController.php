@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Ticket;
 
 class TicketsController extends Controller
@@ -13,11 +14,16 @@ class TicketsController extends Controller
         $this->middleware('admin');
     }
 
-    public function tickets()
+    public function tickets($status = null)
     {
+        if ($status == 'open') {
+          $tickets = Ticket::where('status', 'Open')->paginate(10);
+        } elseif ($status == 'closed') {
+          $tickets = Ticket::where('status', 'Closed')->paginate(10);
+        } else {
         $tickets = Ticket::paginate(10);
+        }
         $categories = Category::all();
-
         return view('tickets.index', compact('tickets', 'categories'));
     }
 

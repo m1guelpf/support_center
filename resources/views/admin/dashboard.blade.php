@@ -5,6 +5,23 @@
   <link href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+  a:link{
+  color:black;
+}
+a:visited{
+  color:black;
+}
+a:hover{
+  color:black;
+}
+a:focus{
+  color:black;
+}
+a:active{
+  color:black;
+}
+  </style>
 @endsection
 
 @section('content')
@@ -14,6 +31,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
+                          <a href="{{ url('admin/tickets') }}">
                             <div class="col-xs-3" style="font-size: 5em;">
                                 <i class="fa fa-ticket"></i>
                             </div>
@@ -21,6 +39,7 @@
                                 <h1>{{ $tickets_count }}</h1>
                                 <div>Tickets</div>
                             </div>
+                          </a>
                         </div>
                     </div>
                 </div>
@@ -29,6 +48,7 @@
                 <div class="panel panel-danger">
                     <div class="panel-heading">
                         <div class="row">
+                          <a href="{{ url('admin/tickets/open') }}">
                             <div class="col-xs-3" style="font-size: 5em;">
                                 <i class="fa fa-times-circle"></i>
                             </div>
@@ -36,6 +56,7 @@
                                 <h1>{{ $open_tickets_count }}</h1>
                                 <div>Open tickets</div>
                             </div>
+                          </a>
                         </div>
                     </div>
                 </div>
@@ -44,6 +65,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="row">
+                          <a href="{{ url('admin/tickets/closed') }}">
                             <div class="col-xs-3" style="font-size: 5em;">
                                 <i class="fa fa-check"></i>
                             </div>
@@ -51,6 +73,7 @@
                                 <h1>{{ $closed_tickets_count }}</h1>
                                 <span>Closed tickets</span>
                             </div>
+                          </a>
                         </div>
                     </div>
                 </div>
