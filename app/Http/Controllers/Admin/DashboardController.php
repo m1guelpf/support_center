@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Ticket;
+use App\User;
 
 class DashboardController extends Controller
 {
@@ -33,6 +33,7 @@ class DashboardController extends Controller
         } else {
             $active_tab = 'cat';
         }
+
         return view(
             'admin.dashboard',
             compact(
