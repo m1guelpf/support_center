@@ -13,11 +13,6 @@ class TicketsController extends Controller
         $this->middleware('admin');
     }
 
-    public function home()
-    {
-        return redirect('admin/tickets');
-    }
-
     public function tickets()
     {
         $tickets = Ticket::paginate(10);
