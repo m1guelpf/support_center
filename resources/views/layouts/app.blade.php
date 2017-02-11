@@ -37,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Support Center') }}
                     </a>
                 </div>
 
@@ -56,10 +56,17 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user-circle-o"> {{ Auth::user()->name }}</i> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                  @if (Auth::user()->isAdmin)
+                                    <li><a href="{{ url('admin') }}">Dashboard</a></li>
+                                    <li><a href="{{ url('admin/tickets') }}">Tickets</a></li>
+                                  @else
+                                    <li><a href="{{ url('tickets') }}">My Tickets</a></li>
+                                    <li><a href="{{ url('tickets/new') }}">Open Ticket</a></li>
+                                  @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
