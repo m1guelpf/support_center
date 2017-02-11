@@ -72,7 +72,8 @@
                       @if (Auth::user()->is_admin)
                         <a href="{{ url('admin') }}">Admin</a>
                       @else
-                        <a href="{{ url('home') }}">Dashboard</a>
+                        <a href="{{ url('tickets') }}">My Tickets</a>
+                        <a href="{{ url('tickets/new') }}">Open Ticket</a>
                       @endif
                     @else
                         <a href="{{ url('login') }}">Login</a>

@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'HomeController@home');
-Route::get('home', 'HomeController@dashboard')->middleware('auth');
 
 Auth::routes();
 
