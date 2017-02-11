@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Ticket;
 use Auth;
+use App\Traits\BBCodeTrait;
 // use App\Mailers\AppMailer;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
+    use BBCodeTrait;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,7 +27,7 @@ class CommentsController extends Controller
         $comment = Comment::create([
           'ticket_id' => $request->input('ticket_id'),
           'user_id'   => Auth::user()->id,
-          'comment'   => $request->input('comment'),
+          'comment'   => $this->bbcode($request->input('comment')),
       ]);
 
       // send mail if the user commenting is not the ticket owner

@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\User;
 use App\Ticket;
 use Auth;
-// use App\Mailers\AppMailer;
+use App\Traits\BBCodeTrait;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketCreated;
 use Illuminate\Http\Request;
 
 class TicketsController extends Controller
 {
+    use BBCodeTrait;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -22,7 +27,7 @@ class TicketsController extends Controller
         return view('tickets.create', compact('categories'));
     }
 
-    public function store(Request $request) // AppMailer $mailer
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title'     => 'required',
@@ -30,20 +35,19 @@ class TicketsController extends Controller
             'priority'  => 'required',
             'message'   => 'required',
         ]);
-
         $ticket = new Ticket([
             'title'        => $request->input('title'),
             'user_id'      => Auth::user()->id,
             'ticket_id'    => strtoupper(str_random(10)),
             'category_id'  => $request->input('category'),
             'priority'     => $request->input('priority'),
-            'message'      => $request->input('message'),
+            'message'      => $this->bbcode($request->input('message')),
             'status'       => 'Open',
         ]);
 
         $ticket->save();
 
-        // $mailer->sendTicketInformation(Auth::user(), $ticket);
+         Mail::to(Auth::user()->email)->send(new TicketCreated(Auth::user(), $ticket));
 
         return redirect()->back()->with('status', "A ticket with ID: #$ticket->ticket_id has been opened.");
     }

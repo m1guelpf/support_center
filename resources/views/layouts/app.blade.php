@@ -14,7 +14,11 @@
     @yield('css')
     <!-- Scripts -->
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=eknk3qyfwf84ocbpuc5d5cl54h8vyvdgn75de0ht7ljkt67h"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({
+                selector: "textarea",
+                plugins: "bbcode"
+            });
+</script>
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
