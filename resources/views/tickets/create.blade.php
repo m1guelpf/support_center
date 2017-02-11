@@ -70,7 +70,7 @@
                             <label for="message" class="col-md-4 control-label">Message</label>
 
                             <div class="col-md-6">
-                                <textarea rows="10" id="message" class="form-control" name="message"></textarea>
+                                <textarea rows="10" id="message" class="form-control" name="message">{{ old('message') }}</textarea>
 
                                 @if ($errors->has('message'))
                                     <span class="help-block">
