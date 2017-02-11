@@ -60,9 +60,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                  @if (Auth::user()->isAdmin)
+                                  @if (Auth::user()->is_admin)
                                     <li><a href="{{ url('admin') }}">Dashboard</a></li>
                                     <li><a href="{{ url('admin/tickets') }}">Tickets</a></li>
+                                    <li><a href="{{ url('admin/categories') }}">Categories</a></li>
                                   @else
                                     <li><a href="{{ url('tickets') }}">My Tickets</a></li>
                                     <li><a href="{{ url('tickets/new') }}">Open Ticket</a></li>

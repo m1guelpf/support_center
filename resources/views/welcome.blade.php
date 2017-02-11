@@ -92,6 +92,7 @@
                     @if (Auth::user()->is_admin)
                       <a href="{{ url('admin') }}">Admin Panel</a>
                       <a href="{{ url('admin/tickets') }}">Tickets</a>
+                      <a href="{{ url('admin/categories') }}">Categories</a>
                     @else
                       <a href="{{ url('tickets')}}">My Tickets</a>
                       <a href="{{ url('tickets/new') }}">Open Ticket</a>
