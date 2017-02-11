@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Ticket;
-use Auth;
 use App\Traits\BBCodeTrait;
+use Auth;
 // use App\Mailers\AppMailer;
 use Illuminate\Http\Request;
 

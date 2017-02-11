@@ -2,12 +2,11 @@
 
 namespace App\Mail;
 
+use App\Ticket;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Ticket;
-use App\User;
 
 class TicketCreated extends Mailable
 {
@@ -15,6 +14,7 @@ class TicketCreated extends Mailable
 
     public $ticket;
     public $user;
+
     /**
      * Create a new message instance.
      *
@@ -36,7 +36,7 @@ class TicketCreated extends Mailable
         return $this->view('mail.ticket_info')
                     ->with([
                         'ticket' => $this->ticket,
-                        'user' => $this->user,
+                        'user'   => $this->user,
                     ]);
     }
 }

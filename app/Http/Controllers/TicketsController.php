@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\User;
-use App\Ticket;
-use Auth;
-use App\Traits\BBCodeTrait;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\TicketCreated;
+use App\Ticket;
+use App\Traits\BBCodeTrait;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TicketsController extends Controller
 {
@@ -47,7 +47,7 @@ class TicketsController extends Controller
 
         $ticket->save();
 
-         Mail::to(Auth::user()->email)->send(new TicketCreated(Auth::user(), $ticket));
+        Mail::to(Auth::user()->email)->send(new TicketCreated(Auth::user(), $ticket));
 
         return redirect()->back()->with('status', "A ticket with ID: #$ticket->ticket_id has been opened.");
     }
