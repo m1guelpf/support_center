@@ -7,7 +7,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-ticket"> My Tickets</i>
+                    <i class="fa fa-ticket"> My Tickets</i><span onClick="window.location.href='{{ url('tickets/new') }}';" style="float:right;cursor:pointer" class="fa fa-plus"></span>
                 </div>
 
                 <div class="panel-body">
