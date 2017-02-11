@@ -9,7 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ url('css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     @yield('css')
     <!-- Scripts -->
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=eknk3qyfwf84ocbpuc5d5cl54h8vyvdgn75de0ht7ljkt67h"></script>

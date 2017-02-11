@@ -12,7 +12,7 @@
 
                 <div class="panel-body">
                     @if ($tickets->isEmpty())
-                        <p>You have not created any tickets.</p>
+                        <p>You have not created any tickets. <a href="{{ url('tickets/new') }}">Open a new ticket!</a></p>
                     @else
                         <table class="table">
                             <thead>

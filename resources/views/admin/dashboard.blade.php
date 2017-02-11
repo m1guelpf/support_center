@@ -3,7 +3,6 @@
 @section('css')
   <link href="https://cdn.datatables.net/plug-ins/505bef35b56/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
   a:link{

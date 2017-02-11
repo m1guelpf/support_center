@@ -16,8 +16,8 @@ Route::get('home', 'HomeController@dashboard')->middleware('auth');
 
 Auth::routes();
 
-Route::get('new_ticket', 'TicketsController@create');
-Route::post('new_ticket', 'TicketsController@store');
+Route::get('tickets/new', 'TicketsController@create');
+Route::post('tickets/new', 'TicketsController@store');
 Route::get('tickets', 'TicketsController@userTickets')->middleware('notadmin');
 Route::get('tickets/{ticket_id}', 'TicketsController@show');
 Route::post('comment', 'CommentsController@postComment');
