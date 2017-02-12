@@ -6,7 +6,8 @@ use App\Comment;
 use App\Ticket;
 use App\Traits\BBCodeTrait;
 use Auth;
-// use App\Mailers\AppMailer;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketCommented;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -35,12 +36,11 @@ class CommentsController extends Controller
           'user_id'   => Auth::user()->id,
           'comment'   => $this->bbcode(htmlspecialchars($request->input('comment'))),
       ]);
-
       // send mail if the user commenting is not the ticket owner
-      if ($comment->ticket->user->id !== Auth::user()->id) {
-          // $mailer->sendTicketComments($comment->ticket->user, Auth::user(), $comment->ticket, $comment);
+      if ($comment->ticket->user->id != Auth::id()) {
+          Mail::to($comment->ticket->user->email)->send(new TicketCommented($comment->ticket->user, $comment, $comment->ticket));
       }
 
-        return redirect()->back()->with('status', 'Your comment has be submitted.');
+        return redirect()->back()->with('status', 'Your comment has been submitted.');
     }
 }
