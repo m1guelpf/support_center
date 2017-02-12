@@ -41,7 +41,7 @@ class TicketsController extends Controller
             'ticket_id'    => strtoupper(str_random(10)),
             'category_id'  => $request->input('category'),
             'priority'     => $request->input('priority'),
-            'message'      => $this->bbcode($request->input('message')),
+            'message'      => $this->bbcode(htmlspecialchars($request->input('message'))),
             'status'       => 'Open',
         ]);
 

@@ -27,7 +27,7 @@ class CommentsController extends Controller
         $comment = Comment::create([
           'ticket_id' => $request->input('ticket_id'),
           'user_id'   => Auth::user()->id,
-          'comment'   => $this->bbcode($request->input('comment')),
+          'comment'   => $this->bbcode(htmlspecialchars($request->input('comment'))),
       ]);
 
       // send mail if the user commenting is not the ticket owner
