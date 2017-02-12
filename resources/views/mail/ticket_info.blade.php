@@ -339,7 +339,7 @@
                                 {{ $user->email }} <br />
                                 <br />
                                 <span class="header-sm">Ticket ID</span><br />
-                                #{{ $ticket->id }} <br />
+                                #{{ $ticket->ticket_id }} <br />
                               </td>
                             </tr>
                           </table>

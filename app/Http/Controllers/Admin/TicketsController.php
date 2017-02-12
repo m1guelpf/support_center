@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Mail\StatusChanged;
+use Illuminate\Support\Facades\Mail;
 use App\Ticket;
 
 class TicketsController extends Controller
@@ -27,7 +29,7 @@ class TicketsController extends Controller
         return view('tickets.index', compact('tickets', 'categories'));
     }
 
-    public function changeStatus($ticket_id) // AppMailer $mailer
+    public function changeStatus($ticket_id)
     {
         $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
         if ($ticket->status == 'Open') {
@@ -38,9 +40,8 @@ class TicketsController extends Controller
 
         $ticket->save();
 
-        $ticketOwner = $ticket->user;
+    Mail::to($ticket->user->email)->send(new StatusChanged($ticket->user, $ticket));
 
-    // $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
     if ($ticket->status == 'Open') {
         return redirect()->back()->with('status', 'The ticket has been reopened.');
     } elseif ($ticket->status == 'Closed') {
