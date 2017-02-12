@@ -2,12 +2,11 @@
 
 namespace App\Mail;
 
+use App\Ticket;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use App\User;
-use App\Ticket;
 
 class StatusChanged extends Mailable
 {
@@ -23,8 +22,8 @@ class StatusChanged extends Mailable
      */
     public function __construct(User $user, Ticket $ticket)
     {
-      $this->user = $user;
-      $this->ticket = $ticket;
+        $this->user = $user;
+        $this->ticket = $ticket;
     }
 
     /**

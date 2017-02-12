@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Mail\StatusChanged;
-use Illuminate\Support\Facades\Mail;
 use App\Ticket;
+use Illuminate\Support\Facades\Mail;
 
 class TicketsController extends Controller
 {
@@ -40,12 +40,12 @@ class TicketsController extends Controller
 
         $ticket->save();
 
-    Mail::to($ticket->user->email)->send(new StatusChanged($ticket->user, $ticket));
+        Mail::to($ticket->user->email)->send(new StatusChanged($ticket->user, $ticket));
 
-    if ($ticket->status == 'Open') {
-        return redirect()->back()->with('status', 'The ticket has been reopened.');
-    } elseif ($ticket->status == 'Closed') {
-        return redirect()->back()->with('status', 'The ticket has been closed.');
-    }
+        if ($ticket->status == 'Open') {
+            return redirect()->back()->with('status', 'The ticket has been reopened.');
+        } elseif ($ticket->status == 'Closed') {
+            return redirect()->back()->with('status', 'The ticket has been closed.');
+        }
     }
 }
