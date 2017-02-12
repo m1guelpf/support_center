@@ -64,16 +64,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if (count(User::find(1)) == 0)
-        {
-          return User::create([
+        if (count(User::find(1)) == 0) {
+            return User::create([
               'name'     => $data['name'],
               'email'    => $data['email'],
               'password' => bcrypt($data['password']),
               'is_admin' => true,
           ]);
         } else {
-          return User::create([
+            return User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
