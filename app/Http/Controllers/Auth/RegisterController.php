@@ -64,7 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if (count(User::find(1)) == 0) {
+        if (count(User::where('is_admin', true)->get()) == 0) {
             return User::create([
               'name'     => $data['name'],
               'email'    => $data['email'],
