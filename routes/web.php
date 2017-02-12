@@ -26,6 +26,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::get('tickets/{status?}', 'TicketsController@tickets');
     Route::get('categories', 'CategoryController@show');
     Route::post('categories', 'CategoryController@add');
+    Route::get('administrators', 'AdminsController@show');
+    Route::post('administrators', 'AdminsController@add');
+    Route::delete('administrators/{user_id}', 'AdminsController@delete');
     Route::delete('category/{category_id}', 'CategoryController@delete');
     Route::post('change_status/{ticket_id}', 'TicketsController@changeStatus');
 });
