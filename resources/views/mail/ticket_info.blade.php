@@ -356,9 +356,7 @@
                               <td class="mini-block">
                                 <span class="header-sm">Ticket details</span> <br />
                                 Title: {{ $ticket->title }} <br />
-                                Message: <br />
-                                {!! $ticket->message !!} <br />
-                                Priority: {{ $ticket->priority }} <br />
+                                Priority: {{ ucfirst($ticket->priority) }} <br />
                                 Status: {{ $ticket->status }}
                               </td>
                             </tr>
