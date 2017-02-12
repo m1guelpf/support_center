@@ -47,8 +47,12 @@
                         <form action="{{ url('comment') }}" method="POST" class="form">
                             {!! csrf_field() !!}
 
-                            <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
-
+                            <input type="hidden" name="ticket_id" value="{{ $ticket->ticket_id }}">
+                            @if ($errors->has('ticket_id'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('ticket_id') }}</strong>
+                                </span>
+                            @endif
                             <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
                                 <textarea rows="10" id="comment" class="form-control" name="comment">{{ old('comment') }}</textarea>
 

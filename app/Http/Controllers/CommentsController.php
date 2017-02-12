@@ -21,11 +21,18 @@ class CommentsController extends Controller
     public function postComment(Request $request) // AppMailer $mailer
     {
         $this->validate($request, [
-      'comment'   => 'required',
-  ]);
+          'comment'   => 'required',
+          'ticket_id' => 'required|exists:tickets,ticket_id'
+        ]);
+
+        $ticket = Ticket::where('ticket_id', $request->input('ticket_id'))->first();
+        if (Auth::id() != $ticket->user_id && !Auth::user()->is_admin)
+        {
+          abort(403, 'Unauthorized action.');
+        }
 
         $comment = Comment::create([
-          'ticket_id' => $request->input('ticket_id'),
+          'ticket_id' => $ticket->id,
           'user_id'   => Auth::user()->id,
           'comment'   => $this->bbcode(htmlspecialchars($request->input('comment'))),
       ]);
