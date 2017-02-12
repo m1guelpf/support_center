@@ -49,6 +49,7 @@
                 <option value="{{ $user->id }}">{{ ucfirst($user->name) }}</option>
                             @endforeach
                         </select>
+                        <br>
                         <button type="submit" class="btn btn-success">Make Administrator</button>
                         </form>
                         @if (count($errors) > 0)
