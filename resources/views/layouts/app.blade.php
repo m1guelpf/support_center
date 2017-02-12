@@ -68,6 +68,7 @@
                                     <li><a href="{{ url('admin') }}">Dashboard</a></li>
                                     <li><a href="{{ url('admin/tickets') }}">Tickets</a></li>
                                     <li><a href="{{ url('admin/categories') }}">Categories</a></li>
+                                    <li><a href="{{ url('admin/administrators') }}">Administrators</a></li>
                                   @else
                                     <li><a href="{{ url('tickets') }}">My Tickets</a></li>
                                     <li><a href="{{ url('tickets/new') }}">Open Ticket</a></li>
