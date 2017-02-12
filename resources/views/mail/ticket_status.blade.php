@@ -283,7 +283,7 @@
                 <table cellpadding="0" cellspacing="0" width="600" class="w320">
                   <tr>
                     <td class="pull-left mobile-header-padding-left" style="vertical-align: middle;">
-                      Support Center
+                      {{ config('app.name') }}
                     </td>
                   </tr>
                 </table>
