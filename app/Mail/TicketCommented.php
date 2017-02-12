@@ -2,13 +2,12 @@
 
 namespace App\Mail;
 
+use App\Comment;
+use App\Ticket;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Ticket;
-use App\User;
-use App\Comment;
 
 class TicketCommented extends Mailable
 {
@@ -39,8 +38,8 @@ class TicketCommented extends Mailable
     {
         return $this->view('mail.ticket_comments')
                     ->with([
-                        'ticket' => $this->ticket,
-                        'user'   => $this->user,
+                        'ticket'  => $this->ticket,
+                        'user'    => $this->user,
                         'comment' => $this->comment,
                     ]);
     }

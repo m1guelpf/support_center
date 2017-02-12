@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Mail\TicketCommented;
 use App\Ticket;
 use App\Traits\BBCodeTrait;
 use Auth;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\TicketCommented;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CommentsController extends Controller
 {
