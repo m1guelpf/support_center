@@ -22,13 +22,12 @@ class CommentsController extends Controller
     {
         $this->validate($request, [
           'comment'   => 'required',
-          'ticket_id' => 'required|exists:tickets,ticket_id'
+          'ticket_id' => 'required|exists:tickets,ticket_id',
         ]);
 
         $ticket = Ticket::where('ticket_id', $request->input('ticket_id'))->first();
-        if (Auth::id() != $ticket->user_id && !Auth::user()->is_admin)
-        {
-          abort(403, 'Unauthorized action.');
+        if (Auth::id() != $ticket->user_id && !Auth::user()->is_admin) {
+            abort(403, 'Unauthorized action.');
         }
 
         $comment = Comment::create([
