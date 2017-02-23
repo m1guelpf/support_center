@@ -29,11 +29,11 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     public function tickets()
     {
-        return $this->hasMany('App\Ticket');
+        return $this->hasMany(Ticket::class);
     }
 }
