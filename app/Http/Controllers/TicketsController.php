@@ -6,7 +6,6 @@ use App\Category;
 use App\Mail\TicketCreated;
 use App\Ticket;
 use App\Traits\BBCodeTrait;
-use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -42,7 +41,6 @@ class TicketsController extends Controller
             'category_id'  => $request->input('category'),
             'priority'     => $request->input('priority'),
             'message'      => $this->bbcode(htmlspecialchars($request->input('message'))),
-            'status'       => 'Open',
         ]);
 
         $ticket->save();

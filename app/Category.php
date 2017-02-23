@@ -12,6 +12,6 @@ class Category extends Model
 
     public function tickets()
     {
-        return $this->hasMany('App\Ticket');
+        return $this->hasMany(Ticket::class);
     }
 }
