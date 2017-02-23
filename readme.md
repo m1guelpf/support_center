@@ -16,6 +16,10 @@ Complete support center built with Laravel
 - Simple: Support Center includes the basic features, but you can extend it to cover your needs!
 - More coming soon: Support Center is under active support so, if you want to help or have ideas, go ahead and Contribute!
 
+## Preview:
+
+Want to preview the script before installing? Check the [YouTube video](https://youtu.be/huFLWRFBlg4)!
+
 ## Requirements:
 
 - PHP >= 5.6.4
