@@ -6,7 +6,6 @@ use App\Category;
 use App\Mail\TicketCreated;
 use App\Ticket;
 use App\Traits\BBCodeTrait;
-use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
