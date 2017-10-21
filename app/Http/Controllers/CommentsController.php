@@ -36,10 +36,10 @@ class CommentsController extends Controller
           'user_id'   => Auth::user()->id,
           'comment'   => $this->bbcode(htmlspecialchars($request->input('comment'))),
       ]);
-      // send mail if the user commenting is not the ticket owner
-      if ($comment->ticket->user->id != Auth::id()) {
-          Mail::to($comment->ticket->user->email)->send(new TicketCommented($comment->ticket->user, $comment, $comment->ticket));
-      }
+        // send mail if the user commenting is not the ticket owner
+        if ($comment->ticket->user->id != Auth::id()) {
+            Mail::to($comment->ticket->user->email)->send(new TicketCommented($comment->ticket->user, $comment, $comment->ticket));
+        }
 
         return redirect()->back()->with('status', 'Your comment has been submitted.');
     }
