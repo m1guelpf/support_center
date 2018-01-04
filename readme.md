@@ -1,8 +1,8 @@
 # Support Center
 <p align="center">
-
   <img width="150" src="https://laravel.com/laravel.png" alt="Support Center">
 </p>
+
 [![StyleCI](https://styleci.io/repos/81247995/shield?branch=master&style=flat)](https://styleci.io/repos/81247995)
 [![Greenkeeper badge](https://badges.greenkeeper.io/m1guelpf/support_center.svg)](https://greenkeeper.io/)
 
